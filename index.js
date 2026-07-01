@@ -21,6 +21,10 @@ db.connect((err) => {
     console.log('Connected to RDS MySQL database');
 });
 
+app.get('/test', (req, res) => {
+    res.send('CI/CD is working!');
+});
+
 app.get('/', (req, res) => {
     db.query('SELECT * FROM users', (err, results) => {
         if (err) {

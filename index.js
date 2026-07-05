@@ -23,7 +23,7 @@ db.connect((err) => {
 });
 
 app.get('/test', (req, res) => {
-    res.send('CI/CD is not working!');
+    res.send('CI/CD is working!');
 });
 
 app.get('/', (req, res) => {

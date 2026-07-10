@@ -1,13 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 
 const app = express();
 
 const db = mysql.createConnection({
-    host: 'mydb.cl0im8qko2ys.ap-south-1.rds.amazonaws.com',
-    user: 'admin',
-    password: 'Ibrahim908',
-    database: 'mydb',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     ssl: {
         rejectUnauthorized: false
     }
@@ -22,7 +23,7 @@ db.connect((err) => {
 });
 
 app.get('/test', (req, res) => {
-    res.send('CI/CD is not working!');
+    res.send('CI/CD is working!');
 });
 
 app.get('/', (req, res) => {
